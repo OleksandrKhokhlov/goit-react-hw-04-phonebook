@@ -19,6 +19,9 @@ export const App = () => {
 
   useEffect(() => {
     localStorage.setItem(LS_KEY, JSON.stringify(contacts));
+    if (contacts.length === 0) {
+      localStorage.removeItem(LS_KEY);
+    }
   }, [contacts]);
 
   const addContact = newContact => {
